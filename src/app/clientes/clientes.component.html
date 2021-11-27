@@ -1,0 +1,26 @@
+
+<h1>clientes</h1>
+<button (click)="navegarAFormulario()" mat-button color='accent' mat-raised-button>
+  Agregar clientes
+</button>
+<table class="mat-elevation-z13" *ngIf="clientes.length>0" mat-table [dataSource]="clientes">
+  <ng-container matColumnDef="nombre">
+    <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.nombre}}</mat-cell>
+  </ng-container>
+<ng-container matColumnDef="direccion">
+  <mat-header-cell *matHeaderCellDef>direccion</mat-header-cell>
+  <mat-cell *matCellDef="let element">{{element.direccion}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="eliminar">
+    <mat-header-cell *matHeaderCellDef>eliminar</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button (click)="eliminar(element)" mat-icon-button color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+<mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+<mat-row *matRowDef="let row;columns:columnas"></mat-row>
+</table>

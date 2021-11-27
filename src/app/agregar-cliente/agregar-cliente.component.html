@@ -1,0 +1,27 @@
+
+<mat-card>
+
+  <h1>Agregar cliente</h1>
+
+  <p>
+      <mat-form-field>
+          <input matInput [(ngModel)]="clientModel.nombre" type="text"
+          placeholder="Escriba nombre">
+      </mat-form-field>
+  </p>
+  <p>
+      <mat-form-field>
+          <textarea row="10" matInput [(ngModel)]="clientModel.direccion"
+          placeholder="Escriba direccion"></textarea>
+      </mat-form-field>
+  </p>
+
+
+      <!-- Boton de guardar -->
+      <app-loading-button [cargando]="cargando"
+      texto="Guardar" (click)="guardar()"></app-loading-button>
+      <a routerLink="/clientes" mat-raised-button color="primary" style="margin-left: 10px;">
+      Volver
+      </a>
+
+</mat-card>
